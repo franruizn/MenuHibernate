@@ -58,12 +58,12 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jButton12" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnEliminar" alignment="0" pref="152" max="32767" attributes="0"/>
+                          <Component id="btnEspecialidad" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="31" pref="31" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jButton13" max="32767" attributes="0"/>
-                          <Component id="btnActualizar" pref="137" max="32767" attributes="0"/>
+                          <Component id="btnUsers" pref="137" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -84,8 +84,8 @@
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnDoctores" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                  <Component id="btnActualizar" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                  <Component id="btnEliminar" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                  <Component id="btnUsers" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                  <Component id="btnEspecialidad" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -110,20 +110,20 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDoctoresActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnEliminar">
+    <Component class="javax.swing.JButton" name="btnEspecialidad">
       <Properties>
-        <Property name="text" type="java.lang.String" value="ELIMINAR"/>
+        <Property name="text" type="java.lang.String" value="GESTIONAR ESPECIALIDADES"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEspecialidadActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnActualizar">
+    <Component class="javax.swing.JButton" name="btnUsers">
       <Properties>
-        <Property name="text" type="java.lang.String" value="ACTUALIZAR"/>
+        <Property name="text" type="java.lang.String" value="GESTIONAR USERS"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnActualizarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUsersActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton11">

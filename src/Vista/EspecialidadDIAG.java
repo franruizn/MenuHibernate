@@ -5,7 +5,6 @@
 package Vista;
 
 import Controlador.ControladorHibernate;
-import Modelo.Doctor;
 import Modelo.Especialidad;
 import Modelo.Usuario;
 
@@ -14,14 +13,14 @@ import Modelo.Usuario;
  *
  * @author franr
  */
-public class DoctoresDIAG extends javax.swing.JDialog {
+public class EspecialidadDIAG extends javax.swing.JDialog {
 
     /**
      * Creates new form DoctoresDIAG
      */
     ControladorHibernate controler = new ControladorHibernate();
 
-    public DoctoresDIAG(java.awt.Frame parent, boolean modal) {
+    public EspecialidadDIAG(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -37,18 +36,13 @@ public class DoctoresDIAG extends javax.swing.JDialog {
 
         txtNombre = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         btnCrear = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        txtDni = new javax.swing.JTextField();
         txtId = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         btnEditar = new javax.swing.JButton();
-        txtEspecialidad = new javax.swing.JTextField();
         btnEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(511, 347));
 
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,8 +51,6 @@ public class DoctoresDIAG extends javax.swing.JDialog {
         });
 
         jLabel2.setText("Nombre");
-
-        jLabel3.setText("Especialidad");
 
         btnCrear.setText("CREAR");
         btnCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -69,24 +61,10 @@ public class DoctoresDIAG extends javax.swing.JDialog {
 
         jLabel4.setText("ID");
 
-        txtDni.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDniActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("DNI");
-
         btnEditar.setText("EDITAR");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarActionPerformed(evt);
-            }
-        });
-
-        txtEspecialidad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEspecialidadActionPerformed(evt);
             }
         });
 
@@ -102,49 +80,37 @@ public class DoctoresDIAG extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+                .addContainerGap(24, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnCrear)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnEditar)
                         .addGap(91, 91, 91)
                         .addComponent(btnEliminar)
-                        .addGap(15, 15, 15))
+                        .addGap(18, 18, 18))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel3))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap())
+                                .addGap(226, 226, 226)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(54, 54, 54)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel3)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -162,49 +128,29 @@ public class DoctoresDIAG extends javax.swing.JDialog {
     }//GEN-LAST:event_txtNombreActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-        String DNI = txtDni.getText();
         String nombre = txtNombre.getText();
-        int especialidad = Integer.parseInt(txtEspecialidad.getText());
+        int id = Integer.parseInt(txtId.getText());
 
-        Doctor d = new Doctor(nombre);
-        Especialidad e = new Especialidad(especialidad);
-        Usuario u = new Usuario(DNI);
+        Especialidad e = new Especialidad(id,nombre);
 
-        d.setEspecialidad_doctor(e);
-        d.setUsuario(u);
-
-        controler.insertar(d);
+        controler.insertar(e);
     }//GEN-LAST:event_btnCrearActionPerformed
-
-    private void txtDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDniActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDniActionPerformed
-
-    private void txtEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEspecialidadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEspecialidadActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         String nombre = txtNombre.getText();
-        String DNI = txtDni.getText();
-        int especialidad = Integer.parseInt(txtEspecialidad.getText());
-        int iddoctor = Integer.parseInt(txtId.getText());
+        int id = Integer.parseInt(txtId.getText());
+
+        Especialidad e = new Especialidad(id,nombre);
         
-        Doctor d = new Doctor(iddoctor, nombre);
-        Especialidad e = new Especialidad(especialidad);
-        Usuario u = new Usuario(DNI);
-        
-        d.setEspecialidad_doctor(e);
-        d.setUsuario(u);
-        
-        controler.update(d);
+        controler.update(e);
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        int iddoctor = Integer.parseInt(txtId.getText());
+        int id = Integer.parseInt(txtId.getText());
+
+        Especialidad e = new Especialidad(id);
         
-        Doctor d = new Doctor(iddoctor);
-        controler.delete(d);
+        controler.delete(e);
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
@@ -224,20 +170,21 @@ public class DoctoresDIAG extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DoctoresDIAG.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EspecialidadDIAG.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DoctoresDIAG.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EspecialidadDIAG.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DoctoresDIAG.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EspecialidadDIAG.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DoctoresDIAG.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EspecialidadDIAG.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                DoctoresDIAG dialog = new DoctoresDIAG(new javax.swing.JFrame(), true);
+                EspecialidadDIAG dialog = new EspecialidadDIAG(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -253,12 +200,8 @@ public class DoctoresDIAG extends javax.swing.JDialog {
     private javax.swing.JButton btnCrear;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField txtDni;
-    private javax.swing.JTextField txtEspecialidad;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
