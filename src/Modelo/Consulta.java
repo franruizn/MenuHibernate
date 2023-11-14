@@ -89,7 +89,7 @@ class Consulta {
     }
     
     //Relaciones Hibernate
-        
+        //Relacion Con Tratamiento
         @ManyToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "fk_idtratamiento")
         private Tratamiento tratamiento;

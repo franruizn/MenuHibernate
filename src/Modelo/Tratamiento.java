@@ -20,19 +20,20 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "tratamiento"
+@Table(name = "tratamiento"
         + "")
 public class Tratamiento implements Serializable {
+
     private static final long serialVersionUID = 1L;
-	//Atributos
-	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	@Column (name = "idtratamiento")
-	private int idTratamiento;
-	@Column (name = "nombre")
-	private String nombre;
-	@Column (name = "precio")
-	private int precio;
+    //Atributos
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idtratamiento")
+    private int idTratamiento;
+    @Column(name = "nombre")
+    private String nombre;
+    @Column(name = "precio")
+    private int precio;
 
     public Tratamiento() {
     }
@@ -66,22 +67,24 @@ public class Tratamiento implements Serializable {
     public void setPrecio(int precio) {
         this.precio = precio;
     }
-      
+
     //Relaciones Hibernate
-        
-        @OneToMany(mappedBy="tratamiento_consulta",cascade = {CascadeType.ALL})
-	 
-        private List<Consulta> consulta;
+    //Relacion Con Consulta
+    @OneToMany(mappedBy = "tratamiento", cascade = {CascadeType.ALL})
+
+    private List<Consulta> consulta;
 
     public List<Consulta> getConsulta() {
         return consulta;
     }
 
     public void addConsulta(Consulta c) {
-        if(consulta==null) consulta=new ArrayList<>();
+        if (consulta == null) {
+            consulta = new ArrayList<>();
+        }
         consulta.add(c);
-        c.setFk_idTratamiento(idTratamiento);
-        
+        c.setTratamiento(this);
+
     }
-        
+
 }
