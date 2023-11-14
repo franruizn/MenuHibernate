@@ -17,8 +17,9 @@ public class EspecialidadDIAG extends javax.swing.JDialog {
     /**
      * Creates new form DoctorDIAG
      */
+    //Declaramos el controlador
     ControladorHibernate controler = new ControladorHibernate();
-    
+
     public EspecialidadDIAG(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -124,28 +125,37 @@ public class EspecialidadDIAG extends javax.swing.JDialog {
     }//GEN-LAST:event_txtIdActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+        //Guardamos los datos introducidos en el programa en variable
         String nombre = txtNombre.getText();
         int id = Integer.parseInt(txtId.getText());
-        
-        Especialidad e = new Especialidad(id,nombre);
-        
+
+        //Creamos los distintos objetos
+        Especialidad e = new Especialidad(id, nombre);
+
+        //Mandamos el comando al controlador
         controler.insertar(e);
     }//GEN-LAST:event_btnCrearActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        //Guardamos los datos introducidos en el programa en variable
         String nombre = txtNombre.getText();
         int id = Integer.parseInt(txtId.getText());
-        
-        Especialidad e = new Especialidad(id,nombre);
-        
+
+        //Creamos los distintos objetos
+        Especialidad e = new Especialidad(id, nombre);
+
+        //Mandamos el comando al controlador
         controler.update(e);
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
+        //Guardamos la primary key en una variable
         int id = Integer.parseInt(txtId.getText());
-        
+
+        //Creamos un objeto con esa key
         Especialidad e = new Especialidad(id);
-        
+
+        //Mandamos el comando al controlador
         controler.delete(e);
     }//GEN-LAST:event_btnBorrarActionPerformed
 

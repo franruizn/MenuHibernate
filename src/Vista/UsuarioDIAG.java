@@ -132,29 +132,44 @@ public class UsuarioDIAG extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //Guardamos los datos introducidos en el programa en variable
         String idusuario=jTextField4.getText();
         String pass=jTextField2.getText();
         int rol=Integer.parseInt(jTextField3.getText());
+        
+        //Creamos los distintos objetos
         Usuario usuario = new Usuario(idusuario,pass,rol);
         ControladorHibernate cnt = new ControladorHibernate();
+        
+        //Mandamos el comando al controlador
         cnt.insertar(usuario);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        //Guardamos los datos introducidos en el programa en variable
         String idusuario=jTextField4.getText();
         String pass=jTextField2.getText();
         int rol=Integer.parseInt(jTextField3.getText());
+        
+        //Creamos los distintos objetos
         Usuario usuario = new Usuario(idusuario,pass,rol);
         ControladorHibernate cnt = new ControladorHibernate();
+        
+        //Mandamos el comando al controlador
         cnt.update(usuario);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        //Guardamos la primary key en una variable
         String idusuario=jTextField4.getText();
         String pass="";
         int rol=0;
+        
+        //Creamos un objeto con esa key
         Usuario usuario = new Usuario(idusuario,pass,rol);
         ControladorHibernate cnt = new ControladorHibernate();
+        
+        //Mandamos el comando al controlador
         cnt.delete(usuario);
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -189,6 +204,7 @@ public class UsuarioDIAG extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                //Declaramos el controlador
                 UsuarioDIAG dialog = new UsuarioDIAG(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override

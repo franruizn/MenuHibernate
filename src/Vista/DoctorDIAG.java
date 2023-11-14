@@ -18,6 +18,7 @@ public class DoctorDIAG extends javax.swing.JDialog {
     /**
      * Creates new form DoctorDIAG
      */
+    //Declaramos el controlador
     ControladorHibernate controler = new ControladorHibernate();
     
     public DoctorDIAG(java.awt.Frame parent, boolean modal) {
@@ -154,43 +155,57 @@ public class DoctorDIAG extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdActionPerformed
 
+    //Le damos funcionalidad al boton crear
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+        //Guardamos los datos introducidos en el programa en variable
         int id = Integer.parseInt(txtId.getText());
         String dni = txtDni.getText();
         String nombre = txtNombre.getText();
         int especialidad = Integer.parseInt(txtEsp.getText());
         
+        //Creamos los distintos objetos
         Doctor d = new Doctor(id,nombre);
         Especialidad e = new Especialidad(especialidad);
         Usuario u = new Usuario(dni);
         
+        //Establecemos las relaciones
         d.setEspecialidad(e);
         d.setUsuario(u);
         
+        //Mandamos el comando al controlador
         controler.insertar(d);
     }//GEN-LAST:event_btnCrearActionPerformed
 
+    //Le damos funcionalidad al boton editar
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        //Guardamos los datos introducidos en el programa en variable
         int id = Integer.parseInt(txtId.getText());
         String dni = txtDni.getText();
         String nombre = txtNombre.getText();
         int especialidad = Integer.parseInt(txtEsp.getText());
         
+        //Creamos los distintos objetos
         Doctor d = new Doctor(id,nombre);
         Especialidad e = new Especialidad(especialidad);
         Usuario u = new Usuario(dni);
         
+        //Establecemos las relaciones
         d.setEspecialidad(e);
         d.setUsuario(u);
         
+        //Mandamos el comando al controlador
         controler.update(d);
     }//GEN-LAST:event_btnEditarActionPerformed
 
+    //Le damos funcionalidad al boton borrar
     private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
+        //Guardamos la primary key en una variable
         int id = Integer.parseInt(txtId.getText());
         
+        //Creamos un objeto con esa key
         Doctor d = new Doctor(id);
         
+        //Mandamos el comando al controlador
         controler.delete(d);
     }//GEN-LAST:event_btnBorrarActionPerformed
 
