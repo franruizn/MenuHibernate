@@ -20,29 +20,27 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "consulta"+ "")
-class Consulta {
+@Table(name = "consulta" + "")
+public class Consulta {
+
     private static final long serialVersionUID = 1L;
-	//Atributos
-	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	@Column (name = "idconsulta")
-	private int idConsulta;
-	@Column (name = "fk_idpaciente")
-	private int fk_IdPaciente;
-	@Column (name = "fk_idpaciente")
-	private int fk_idPaciente;
-        @Column (name = "observaciones")
-	private String observaciones;
-        @Column (name = "fecha")
-	private Date fecha;
+    //Atributos
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idconsulta")
+    private int idConsulta;
+    @Column(name = "fk_idpaciente")
+    private int fk_idPaciente;
+    @Column(name = "observaciones")
+    private String observaciones;
+    @Column(name = "fecha")
+    private Date fecha;
 
     public Consulta() {
     }
 
-    public Consulta(int idConsulta, int fk_IdPaciente, int fk_idPaciente, String observaciones, Date fecha) {
+    public Consulta(int idConsulta, int fk_idPaciente, String observaciones, Date fecha) {
         this.idConsulta = idConsulta;
-        this.fk_IdPaciente = fk_IdPaciente;
         this.fk_idPaciente = fk_idPaciente;
         this.observaciones = observaciones;
         this.fecha = fecha;
@@ -54,14 +52,6 @@ class Consulta {
 
     public void setIdConsulta(int idConsulta) {
         this.idConsulta = idConsulta;
-    }
-
-    public int getFk_IdPaciente() {
-        return fk_IdPaciente;
-    }
-
-    public void setFk_IdPaciente(int fk_IdPaciente) {
-        this.fk_IdPaciente = fk_IdPaciente;
     }
 
     public int getFk_idPaciente() {
@@ -87,12 +77,12 @@ class Consulta {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-    
+
     //Relaciones Hibernate
-        //Relacion Con Tratamiento
-        @ManyToOne(cascade = {CascadeType.ALL})
-	@JoinColumn(name = "fk_idtratamiento")
-        private Tratamiento tratamiento;
+    //Relacion Con Tratamiento
+    @ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "fk_idtratamiento")
+    private Tratamiento tratamiento;
 
     public Tratamiento getTratamiento() {
         return tratamiento;
@@ -101,5 +91,5 @@ class Consulta {
     public void setTratamiento(Tratamiento tratamiento) {
         this.tratamiento = tratamiento;
     }
-        
+
 }

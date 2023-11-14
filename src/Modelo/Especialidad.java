@@ -9,6 +9,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,16 +19,17 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "especialidad")
+@Table(name = "especialidad")
 public class Especialidad implements Serializable {
+
     private static final long serialVersionUID = 1L;
-	//Atributos
-	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	@Column (name = "idespecialidad")
-	private int idEspecialidad;
-	@Column (name = "nombre")
-	private int nombre;
+    //Atributos
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idespecialidad")
+    private int idEspecialidad;
+    @Column(name = "nombre")
+    private int nombre;
 
     public Especialidad() {
     }
@@ -35,6 +37,10 @@ public class Especialidad implements Serializable {
     public Especialidad(int idEspecialidad, int nombre) {
         this.idEspecialidad = idEspecialidad;
         this.nombre = nombre;
+    }
+
+    public Especialidad(int especialidad) {
+        this.idEspecialidad = especialidad;
     }
 
     public int getIdEspecialidad() {
@@ -52,9 +58,8 @@ public class Especialidad implements Serializable {
     public void setNombre(int nombre) {
         this.nombre = nombre;
     }
-    
+
     //Relaciones Hibernate
-        
-        @OneToMany(mappedBy = "especialidad_doctor" ,cascade = CascadeType.ALL)
-        private List<Doctor> doctores;
+    @OneToMany(mappedBy = "especialidad_doctor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Doctor> doctores;
 }

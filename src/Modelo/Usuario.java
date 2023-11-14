@@ -7,6 +7,7 @@ package Modelo;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,15 +21,16 @@ import javax.persistence.Table;
  * @author usuario
  */
 @Entity
-@Table (name = "usuario")
+@Table(name = "usuario")
 public class Usuario {
+
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column (name = "idusuario")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idusuario")
     private String idusuario;
-    @Column (name = "pass")
+    @Column(name = "pass")
     private String pass;
-    @Column (name = "rol")
+    @Column(name = "rol")
     private int rol;
 
     public Usuario() {
@@ -38,6 +40,12 @@ public class Usuario {
         this.idusuario = idusuario;
         this.pass = pass;
         this.rol = rol;
+    }
+
+    public Usuario(String DNI) {
+        this.idusuario = DNI;
+        pass = "CAMBIAR";
+        rol = 2;
     }
 
     public String getIdusuario() {
@@ -68,10 +76,9 @@ public class Usuario {
     public String toString() {
         return "Usuario{" + "idusuario=" + idusuario + ", pass=" + pass + ", rol=" + rol + '}';
     }
-    
+
     //Relaciones Hibernate
-        
-        @OneToOne(mappedBy="usuario", cascade = {CascadeType.ALL})
-        private Doctor doctor;
-        
+    @OneToOne(mappedBy = "usuario", cascade = {CascadeType.ALL})
+    private Doctor doctor;
+
 }
