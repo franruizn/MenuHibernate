@@ -4,6 +4,8 @@
  */
 package Modelo;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -78,7 +80,20 @@ public class Usuario {
     }
 
     //Relaciones Hibernate
+
     @OneToOne(mappedBy = "usuario", cascade = {CascadeType.ALL})
     private Doctor doctor;
+
+
+        
+      
+        public Doctor getDoctores() {
+        return doctor;
+    }
+
+    public void addDoctores(Doctor a) {
+        doctor=a;
+        a.setUsuario(this);
+    }
 
 }
