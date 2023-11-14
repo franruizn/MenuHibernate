@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -92,6 +93,10 @@ public class Doctor implements Serializable{
         @ManyToOne(cascade = {CascadeType.ALL})
 	 @JoinColumn(name="fk_idespecialidad")
         private Especialidad especialidad_doctor;
+        
+        @OneToOne(cascade = {CascadeType.ALL})
+        @JoinColumn(name= "fk_idusuario")
+        private Usuario usuario;
 		
 	
 }
