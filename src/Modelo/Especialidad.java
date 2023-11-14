@@ -5,16 +5,21 @@
 package Modelo;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "tratamiento")
-public class Tratamiento implements Serializable {
+@Table (name = "especialidad")
+public class Especialidad implements Serializable {
     private static final long serialVersionUID = 1L;
 	//Atributos
 	@Id
@@ -24,10 +29,10 @@ public class Tratamiento implements Serializable {
 	@Column (name = "nombre")
 	private int nombre;
 
-    public Tratamiento() {
+    public Especialidad() {
     }
 
-    public Tratamiento(int idEspecialidad, int nombre) {
+    public Especialidad(int idEspecialidad, int nombre) {
         this.idEspecialidad = idEspecialidad;
         this.nombre = nombre;
     }
@@ -47,5 +52,9 @@ public class Tratamiento implements Serializable {
     public void setNombre(int nombre) {
         this.nombre = nombre;
     }
-	
+    
+    //Relaciones Hibernate
+        
+        @OneToMany(cascade = {CascadeType.ALL})
+        private List<Doctor> doctores;
 }

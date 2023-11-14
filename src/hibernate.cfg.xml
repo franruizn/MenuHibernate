@@ -24,7 +24,7 @@
         <!--Utiilizamos anotaciones de la clase Customer -->
         <mapping class="Modelo.Usuario"/>
         <mapping class="Modelo.Doctor" />
-        <mapping class="Modelo.Tratamiento" />
+        <mapping class="Modelo.Especialidad" />
 
         
         
