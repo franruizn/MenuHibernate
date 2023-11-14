@@ -25,6 +25,7 @@
         <mapping class="Modelo.Usuario"/>
         <mapping class="Modelo.Doctor" />
         <mapping class="Modelo.Especialidad" />
+        <mapping class="Modelo.Tratamiento" />
 
         
         

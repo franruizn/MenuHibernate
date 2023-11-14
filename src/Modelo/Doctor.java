@@ -40,7 +40,7 @@ public class Doctor implements Serializable{
 	@Column (name = "nombre")
 	private String nombre;
 	@Column (name = "fk_idespecialidad")
-	private String especialidad;
+	private String fk_idEspecialidad;
 	
 	//Constructores
 	public Doctor() {
@@ -50,7 +50,7 @@ public class Doctor implements Serializable{
 	public Doctor(int iddoctor, int fk_idusuario, int fk_idespecialidad, String nombre) {
 		this.idDoctor = iddoctor;
 		this.fk_idUsuario = fk_idusuario;
-		especialidad = Integer.toString(fk_idespecialidad);
+		fk_idEspecialidad = Integer.toString(fk_idespecialidad);
 		this.nombre = nombre;
 	}
         //asdasdasd
@@ -73,11 +73,11 @@ public class Doctor implements Serializable{
 	}
 
 	public String getFk_idespecialidad() {
-		return especialidad;
+		return fk_idEspecialidad;
 	}
 
 	public void setFk_idespecialidad(int fk_idespecialidad) {
-		this.especialidad = Integer.toString(fk_idespecialidad);
+		this.fk_idEspecialidad = Integer.toString(fk_idespecialidad);
 	}
 
 	public String getNombre() {
