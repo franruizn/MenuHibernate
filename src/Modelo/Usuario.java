@@ -17,13 +17,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-/**
- *
- * @author usuario
- */
 @Entity
 @Table(name = "usuario")
 public class Usuario {
+//Atributos de la tabla usuario
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,6 +31,7 @@ public class Usuario {
     @Column(name = "rol")
     private int rol;
 
+//constructores
     public Usuario() {
     }
 
@@ -47,6 +45,7 @@ public class Usuario {
         this.idusuario = dni;
     }
 
+    //metodos
     public String getIdusuario() {
         return idusuario;
     }
@@ -77,9 +76,11 @@ public class Usuario {
     }
 
     //Relaciones Hibernate
+    //Relaciones con doctor
     @OneToOne(mappedBy = "usuario", cascade = {CascadeType.ALL})
     private Doctor doctor;
 
+    //metodos para gestionar doctores
     public Doctor getDoctor() {
         return doctor;
     }

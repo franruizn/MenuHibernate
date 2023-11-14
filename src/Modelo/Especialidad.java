@@ -19,17 +19,19 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "especialidad")
+@Table(name = "especialidad")
 public class Especialidad implements Serializable {
-    private static final long serialVersionUID = 1L;
-	//Atributos
-	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	@Column (name = "idespecialidad")
-	private int idEspecialidad;
-	@Column (name = "nombre")
-	private String nombre;
 
+    private static final long serialVersionUID = 1L;
+    //Atributos de la tabla especialidad
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idespecialidad")
+    private int idEspecialidad;
+    @Column(name = "nombre")
+    private String nombre;
+
+    //Constructores 
     public Especialidad() {
     }
 
@@ -42,6 +44,7 @@ public class Especialidad implements Serializable {
         this.idEspecialidad = especialidad;
     }
 
+    //Métodos
     public int getIdEspecialidad() {
         return idEspecialidad;
     }
@@ -57,13 +60,14 @@ public class Especialidad implements Serializable {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
+
     //Relaciones Hibernate
-        
-        @OneToMany(mappedBy = "especialidad_doctor" ,cascade = CascadeType.ALL)
-        private List<Doctor> doctores;
-        
-        public List<Doctor> getDoctor() {
+    //Relacion con doctor
+    @OneToMany(mappedBy = "especialidad_doctor", cascade = CascadeType.ALL)
+    private List<Doctor> doctores;
+
+    //Metodos para gestionar doctores
+    public List<Doctor> getDoctor() {
         return doctores;
     }
 

@@ -27,11 +27,8 @@ import javax.persistence.Table;
 
 public class Doctor implements Serializable {
 
-    /**
-     *
-     */
     private static final long serialVersionUID = 1L;
-    //Atributos
+    //Atributos de la tabla doctor
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "iddoctor")
@@ -39,19 +36,18 @@ public class Doctor implements Serializable {
     @Column(name = "nombre")
     private String nombre;
 
-    //Constructores
+    //Constructores 
     public Doctor() {
     }
 
     public Doctor(int idDoctor) {
         this.idDoctor = idDoctor;
     }
-    
+
     public Doctor(int iddoctor, String nombre) {
         this.idDoctor = iddoctor;
         this.nombre = nombre;
     }
-    //asdasdasd
 
     //Métodos
     public int getIddoctor() {
@@ -71,14 +67,17 @@ public class Doctor implements Serializable {
     }
 
     //Relaciones Hibernate
+    //Relaciones con Especialidad
     @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "fk_idespecialidad")
     private Especialidad especialidad;
 
+    //Relaciones con Usuario
     @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "fk_idusuario")
     private Usuario usuario;
 
+    //Metodos para gestionar especialidad
     public Especialidad especialidad() {
         return especialidad;
     }
@@ -87,6 +86,7 @@ public class Doctor implements Serializable {
         this.especialidad = especialidad_doctor;
     }
 
+    //Metodos para gestionar usuarios
     public Usuario getUsuario() {
         return usuario;
     }
