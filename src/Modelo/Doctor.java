@@ -23,80 +23,73 @@ import javax.persistence.Table;
  * @author usuario
  */
 @Entity
-@Table (name = "doctor")
+@Table(name = "doctor")
 
-public class Doctor implements Serializable{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	//Atributos
-	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	@Column (name = "iddoctor")
-	private int idDoctor;
-	@Column (name = "fk_idusuario")
-	private int fk_idUsuario;
-	@Column (name = "nombre")
-	private String nombre;
-	@Column (name = "fk_idespecialidad")
-	private String fk_idEspecialidad;
-	
-	//Constructores
-	public Doctor() {
-		
-	}
-	
-	public Doctor(int iddoctor, int fk_idusuario, int fk_idespecialidad, String nombre) {
-		this.idDoctor = iddoctor;
-		this.fk_idUsuario = fk_idusuario;
-		fk_idEspecialidad = Integer.toString(fk_idespecialidad);
-		this.nombre = nombre;
-	}
-        //asdasdasd
-	
-	//Métodos
-	public int getIddoctor() {
-		return idDoctor;
-	}
+public class Doctor implements Serializable {
 
-	public void setIddoctor(int iddoctor) {
-		this.idDoctor = iddoctor;
-	}
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+    //Atributos
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "iddoctor")
+    private int idDoctor;
+    @Column(name = "nombre")
+    private String nombre;
 
-	public int getFk_idusuario() {
-		return fk_idUsuario;
-	}
+    //Constructores
+    public Doctor() {
 
-	public void setFk_idusuario(int fk_idusuario) {
-		this.fk_idUsuario = fk_idusuario;
-	}
+    }
 
-	public String getFk_idespecialidad() {
-		return fk_idEspecialidad;
-	}
+    public Doctor(int iddoctor, String nombre) {
+        this.idDoctor = iddoctor;
+        this.nombre = nombre;
+    }
+    //asdasdasd
 
-	public void setFk_idespecialidad(int fk_idespecialidad) {
-		this.fk_idEspecialidad = Integer.toString(fk_idespecialidad);
-	}
+    //Métodos
+    public int getIddoctor() {
+        return idDoctor;
+    }
 
-	public String getNombre() {
-		return nombre;
-	}
+    public void setIddoctor(int iddoctor) {
+        this.idDoctor = iddoctor;
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-        
-        //Relaciones Hibernate
-        
-        @ManyToOne(cascade = {CascadeType.ALL})
-	 @JoinColumn(name="fk_idespecialidad")
-        private Especialidad especialidad_doctor;
-        
-        @OneToOne(cascade = {CascadeType.ALL})
-        @JoinColumn(name= "fk_idusuario")
-        private Usuario usuario;
-		
-	
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    //Relaciones Hibernate
+    @ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "fk_idespecialidad")
+    private Especialidad especialidad;
+
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "fk_idusuario")
+    private Usuario usuario;
+
+    public Especialidad especialidad() {
+        return especialidad;
+    }
+
+    public void setEspecialidad(Especialidad especialidad_doctor) {
+        this.especialidad = especialidad_doctor;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
 }
