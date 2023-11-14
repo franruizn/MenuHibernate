@@ -49,6 +49,14 @@ public class ControladorHibernate {
         sesion.close();
     }
     
+    public void update (Object objeto){
+        sesion = instancia.openSession();
+        sesion.beginTransaction();
+        sesion.update(objeto);
+        sesion.getTransaction().commit();
+        sesion.close();
+    }
+    
     public ArrayList<Object> getDatos(Class<?> clase){
         sesion = instancia.openSession();
         sesion.beginTransaction();
