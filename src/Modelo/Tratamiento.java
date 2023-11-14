@@ -20,7 +20,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tratamiento"+ "")
+@Table(name = "tratamiento"
+        + "")
 public class Tratamiento implements Serializable {
 
     private static final long serialVersionUID = 1L;
