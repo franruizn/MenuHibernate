@@ -8,7 +8,8 @@ import Controlador.ControladorHibernate;
 import Modelo.Doctor;
 import Modelo.Especialidad;
 import Modelo.Usuario;
-
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
