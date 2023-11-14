@@ -9,7 +9,7 @@ import Modelo.Especialidad;
 import Modelo.Usuario;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+import javax.persistence.TypedQuery;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -31,7 +31,6 @@ public class ControladorHibernate {
                 .addAnnotatedClass(Usuario.class)
                 .buildSessionFactory();
         
-        
     }
 
     public void insertar(Object objeto) {
@@ -50,11 +49,11 @@ public class ControladorHibernate {
         sesion.close();
     }
     
-    public void update(Object objeto) {
+    public void update (Object objeto){
         sesion = instancia.openSession();
         sesion.beginTransaction();
         sesion.update(objeto);
-        sesion.getTransaction().commit(); 
+        sesion.getTransaction().commit();
         sesion.close();
     }
     
@@ -85,10 +84,4 @@ public class ControladorHibernate {
         
         return (ArrayList<Object>) result;
     }
-
-    public Session getSesion() {
-        return sesion = instancia.openSession();
-    }
-    
-    
 }
