@@ -5,6 +5,7 @@
 package Modelo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -71,4 +72,16 @@ public class Tratamiento implements Serializable {
         @OneToMany(mappedBy="tratamiento_consulta",cascade = {CascadeType.ALL})
 	 
         private List<Consulta> consulta;
+
+    public List<Consulta> getConsulta() {
+        return consulta;
+    }
+
+    public void addConsulta(Consulta c) {
+        if(consulta==null) consulta=new ArrayList<>();
+        consulta.add(c);
+        c.setFk_idTratamiento(idTratamiento);
+        
+    }
+        
 }

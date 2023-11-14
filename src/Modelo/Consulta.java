@@ -32,8 +32,6 @@ class Consulta {
 	private int fk_IdPaciente;
 	@Column (name = "fk_idpaciente")
 	private int fk_idPaciente;
-        @Column (name = "fk_idtratamiento")
-	private int fk_idTratamiento;
         @Column (name = "observaciones")
 	private String observaciones;
         @Column (name = "fecha")
@@ -42,11 +40,10 @@ class Consulta {
     public Consulta() {
     }
 
-    public Consulta(int idConsulta, int fk_IdPaciente, int fk_idPaciente, int fk_idTratamiento, String observaciones, Date fecha) {
+    public Consulta(int idConsulta, int fk_IdPaciente, int fk_idPaciente, String observaciones, Date fecha) {
         this.idConsulta = idConsulta;
         this.fk_IdPaciente = fk_IdPaciente;
         this.fk_idPaciente = fk_idPaciente;
-        this.fk_idTratamiento = fk_idTratamiento;
         this.observaciones = observaciones;
         this.fecha = fecha;
     }
@@ -75,14 +72,6 @@ class Consulta {
         this.fk_idPaciente = fk_idPaciente;
     }
 
-    public int getFk_idTratamiento() {
-        return fk_idTratamiento;
-    }
-
-    public void setFk_idTratamiento(int fk_idTratamiento) {
-        this.fk_idTratamiento = fk_idTratamiento;
-    }
-
     public String getObservaciones() {
         return observaciones;
     }
@@ -102,6 +91,15 @@ class Consulta {
     //Relaciones Hibernate
         
         @ManyToOne(cascade = {CascadeType.ALL})
-	@JoinColumn(name = "fk_idTratamiento")
+	@JoinColumn(name = "fk_idtratamiento")
         private Tratamiento tratamiento;
+
+    public Tratamiento getTratamiento() {
+        return tratamiento;
+    }
+
+    public void setTratamiento(Tratamiento tratamiento) {
+        this.tratamiento = tratamiento;
+    }
+        
 }
