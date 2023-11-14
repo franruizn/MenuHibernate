@@ -4,11 +4,15 @@
  */
 package Modelo;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -64,4 +68,10 @@ public class Usuario {
     public String toString() {
         return "Usuario{" + "idusuario=" + idusuario + ", pass=" + pass + ", rol=" + rol + '}';
     }
+    
+    //Relaciones Hibernate
+        
+        @OneToOne(mappedBy="usuario", cascade = {CascadeType.ALL})
+        private Doctor doctor;
+        
 }

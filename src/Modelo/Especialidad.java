@@ -55,6 +55,6 @@ public class Especialidad implements Serializable {
     
     //Relaciones Hibernate
         
-        @OneToMany(cascade = {CascadeType.ALL})
+        @OneToMany(mappedBy = "especialidad_doctor" ,cascade = CascadeType.ALL)
         private List<Doctor> doctores;
 }
