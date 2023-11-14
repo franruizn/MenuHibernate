@@ -43,6 +43,10 @@ public class Usuario {
         this.rol = rol;
     }
 
+    public Usuario(String dni) {
+        this.idusuario = dni;
+    }
+
     public String getIdusuario() {
         return idusuario;
     }

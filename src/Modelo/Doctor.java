@@ -41,9 +41,12 @@ public class Doctor implements Serializable {
 
     //Constructores
     public Doctor() {
-
     }
 
+    public Doctor(int idDoctor) {
+        this.idDoctor = idDoctor;
+    }
+    
     public Doctor(int iddoctor, String nombre) {
         this.idDoctor = iddoctor;
         this.nombre = nombre;

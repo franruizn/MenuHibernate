@@ -38,6 +38,10 @@ public class Especialidad implements Serializable {
         this.nombre = nombre;
     }
 
+    public Especialidad(int especialidad) {
+        this.idEspecialidad = especialidad;
+    }
+
     public int getIdEspecialidad() {
         return idEspecialidad;
     }
