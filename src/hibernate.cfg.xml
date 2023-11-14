@@ -22,7 +22,8 @@
         -->
         <property name="hbm2ddl.auto">update</property>
         <!--Utiilizamos anotaciones de la clase Customer -->
-        <mapping class="Modelo.Doctor" />
+        <mapping class="Modelo.Doctor"/>
+        <mapping class="Modelo.Usuario"/>
         
     </session-factory>
 </hibernate-configuration>
