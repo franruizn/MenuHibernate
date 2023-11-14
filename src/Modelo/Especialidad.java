@@ -5,6 +5,7 @@
 package Modelo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -27,12 +28,12 @@ public class Especialidad implements Serializable {
 	@Column (name = "idespecialidad")
 	private int idEspecialidad;
 	@Column (name = "nombre")
-	private int nombre;
+	private String nombre;
 
     public Especialidad() {
     }
 
-    public Especialidad(int idEspecialidad, int nombre) {
+    public Especialidad(int idEspecialidad, String nombre) {
         this.idEspecialidad = idEspecialidad;
         this.nombre = nombre;
     }
@@ -45,11 +46,11 @@ public class Especialidad implements Serializable {
         this.idEspecialidad = idEspecialidad;
     }
 
-    public int getNombre() {
+    public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(int nombre) {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
     
@@ -57,4 +58,17 @@ public class Especialidad implements Serializable {
         
         @OneToMany(mappedBy = "especialidad_doctor" ,cascade = CascadeType.ALL)
         private List<Doctor> doctores;
+        
+        public List<Doctor> getDoctor() {
+        return doctores;
+    }
+
+    public void addDoctores(Doctor c) {
+        if (doctores == null) {
+            doctores = new ArrayList<>();
+        }
+        doctores.add(c);
+        c.setEspecialidad(this);
+
+    }
 }
