@@ -5,7 +5,11 @@
 package Vista;
 
 
+import Controlador.ControladorHibernate;
+import Modelo.Doctor;
+import Modelo.Especialidad;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -27,6 +31,8 @@ public class ConsultasGUI extends javax.swing.JFrame {
     /**
      * Constructor de la clase ConsultasGUI.
      */
+    ControladorHibernate con = new ControladorHibernate();
+    
     public ConsultasGUI() {
         initComponents();
         this.setResizable(false);
@@ -49,6 +55,7 @@ public class ConsultasGUI extends javax.swing.JFrame {
         btnActualizar = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnWhere = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -97,6 +104,13 @@ public class ConsultasGUI extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("CONSULTAS");
 
+        btnWhere.setText("SELECT");
+        btnWhere.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnWhereActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -105,24 +119,33 @@ public class ConsultasGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(38, 38, 38)
-                        .addComponent(btnActualizar))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton14)
-                .addGap(252, 252, 252))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37)
+                                .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(38, 38, 38)
+                                .addComponent(btnActualizar))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jButton14)
+                                .addGap(252, 252, 252))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btnWhere)
+                                .addGap(253, 253, 253))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(5, 5, 5)
+                .addComponent(btnWhere)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -150,18 +173,31 @@ public class ConsultasGUI extends javax.swing.JFrame {
     
     // Código para insertar datos en la base de datos
     private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
-        
+        DoctorDIAG doc = new DoctorDIAG(this,true);
+        doc.setVisible(true);
     }//GEN-LAST:event_btnInsertarActionPerformed
 
     // Código para eliminar datos en la base de datos
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        
+        EspecialidadDIAG doc = new EspecialidadDIAG(this,true);
+        doc.setVisible(true);
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     // Código para actualizar datos en la base de datos
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        
+        UsuarioDIAG doc = new UsuarioDIAG(this,true);
+        doc.setVisible(true);
     }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void btnWhereActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWhereActionPerformed
+        // TODO add your handling code here:
+        ArrayList<Object> res = con.getDatos(Doctor.class);
+        
+        for(int i = 0; i < res.size(); i++){
+            System.out.println(res.get(i).toString());
+        }
+        
+    }//GEN-LAST:event_btnWhereActionPerformed
     
     // Referenciarse principalmente de la clase "ControladorSQL"
 
@@ -169,6 +205,7 @@ public class ConsultasGUI extends javax.swing.JFrame {
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnInsertar;
+    private javax.swing.JButton btnWhere;
     private javax.swing.JButton jButton14;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

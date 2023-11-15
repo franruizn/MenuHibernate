@@ -66,15 +66,21 @@ public class Doctor implements Serializable {
         this.nombre = nombre;
     }
 
+    @Override
+    public String toString() {
+        return "Doctor{" + "idDoctor=" + idDoctor + ", nombre=" + nombre + ", especialidad=" + especialidad + ", usuario=" + usuario + '}';
+    }
+    
+    
     //Relaciones Hibernate
     //Relaciones con Especialidad
     @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "fk_idespecialidad")
+    @JoinColumn(name = "fk_idespecialidad",referencedColumnName="idespecialidad",insertable=false,updatable=false)
     private Especialidad especialidad;
 
     //Relaciones con Usuario
     @OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "fk_idusuario")
+    @JoinColumn(name = "fk_idusuario",referencedColumnName="idusuario",insertable=false,updatable=false)
     private Usuario usuario;
 
     //Metodos para gestionar especialidad

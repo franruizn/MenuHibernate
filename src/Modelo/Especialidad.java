@@ -42,6 +42,7 @@ public class Especialidad implements Serializable {
 
     public Especialidad(int especialidad) {
         this.idEspecialidad = especialidad;
+        nombre = "Nueva Especialidad";
     }
 
     //Métodos
@@ -61,9 +62,16 @@ public class Especialidad implements Serializable {
         this.nombre = nombre;
     }
 
+    @Override
+    public String toString() {
+        return "Especialidad{" + "idEspecialidad=" + idEspecialidad + ", nombre=" + nombre + '}';
+    }
+    
+    
+
     //Relaciones Hibernate
     //Relacion con doctor
-    @OneToMany(mappedBy = "especialidad_doctor", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "especialidad", cascade = CascadeType.ALL)
     private List<Doctor> doctores;
 
     //Metodos para gestionar doctores

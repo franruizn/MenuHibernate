@@ -63,7 +63,7 @@ public class ControladorHibernate {
         sesion = instancia.openSession();
         sesion.beginTransaction();
 
-        String hql = "FROM " + clase.getSimpleName().toLowerCase();
+        String hql = "FROM " + clase.getSimpleName();
 
         Query<Object> consulta = (Query<Object>) sesion.createQuery(hql, clase);
         List<Object> result = consulta.getResultList();
