@@ -23,7 +23,6 @@ public class Usuario {
 //Atributos de la tabla usuario
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idusuario")
     private String idusuario;
     @Column(name = "pass")
@@ -43,6 +42,8 @@ public class Usuario {
 
     public Usuario(String dni) {
         this.idusuario = dni;
+        pass = "CAMBIAR";
+        rol = 2;
     }
 
     //metodos

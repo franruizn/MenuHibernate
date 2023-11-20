@@ -123,7 +123,8 @@ public class InicioGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultasActionPerformed
-        
+        ConsultasGUI con = new ConsultasGUI();
+        con.setVisible(true);
     }//GEN-LAST:event_btnConsultasActionPerformed
 
     private void btnConectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConectarActionPerformed
